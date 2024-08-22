@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: white) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -31,3 +31,102 @@ body {
     text-wrap: balance;
   }
 }
+
+.navbar {
+  position: fixed;
+  top: 70px;
+  left: 50px;
+  right: 50px;
+  width: 1200px;
+  background-color: none;
+  padding: 10px 20px;
+  z-index: 1000;
+  border-radius: 10px;
+  border-width: 2px;
+}
+
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  margin-left: 60px;
+}
+
+.navbar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-menu li a:hover {
+  color: #ddd;
+}
+
+.content {
+  margin-top: 80px; /* Adjust this value based on your navbar's height */
+  padding: 20px;
+}
+
+/* Sidebar.module.css */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  height: 100vh;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+  transition: background 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  background-color: #444;
+}
+
+.main {
+  margin-left: 250px; /* Adjust this value to match the width of your sidebar */
+  min-height: 100vh; /* Ensures the main content covers the full height of the viewport */
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Aligns items vertically */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  text-align: center; /* Centers the text inside the container */
+  padding: 20px; /* Adds some padding inside the main content */
+  background-color: #851a1a; /* Example background color */
+  margin-top: 200px;
+}
+
+
+
