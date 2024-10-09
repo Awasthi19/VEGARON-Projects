@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
     const token = request.cookies.get('jwt')?.value||false;
 
-    if(!token && path === '/dashboard') {
+    if(!token && path === '/dashboard1') {
         console.log("redirecting to login")
         return NextResponse.redirect(new URL('/login', request.nextUrl))
     }
@@ -15,6 +15,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        '/dashboard'
+        '/dashboard1'
     ]
 }

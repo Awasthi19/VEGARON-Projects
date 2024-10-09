@@ -1,0 +1,243 @@
+.form-container {
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: none;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ccc; /* Light text color */
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    grid-column: span 2;
+    font-family: 'Roboto', sans-serif; /* Match the menu container font */
+}
+
+.registration-form {
+    border: 1px solid #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #1a1a1a; /* Match the menu container background */
+    padding: 2rem;
+    border-radius: 10px; /* Match the menu container border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increase shadow opacity to match */
+    color: #ccc; /* Light text color */
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    justify-content: start;
+}
+.form-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+.form-container::-webkit-scrollbar-thumb {
+    background-color: #555; /* Scrollbar thumb color */
+    border-radius: 10px;
+  }
+  
+.form-container::-webkit-scrollbar-track {
+    background-color: #333; /* Scrollbar track color */
+  }
+
+.form-section {
+    max-width: 250px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.form-section h3 {
+    margin-bottom: 1rem;
+    color: #ccc; /* Light text color */
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-bottom: 1px solid #444; /* Match the border color */
+    padding-bottom: 0.5rem;
+    font-family: 'Roboto', sans-serif; /* Match the menu container font */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: #bfbfbf;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #292929;
+    color: #f0f0f0;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3f51b5, 0 0 0 4px rgba(63, 81, 181, 0.2);
+}
+
+button[type="submit"],
+button[type="button"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px; /* Match the button border radius with the menu item */
+    background-color: #3f51b5;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto', sans-serif; /* Match the menu container font */
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #303f9f;
+}
+
+button[type="button"] {
+    background-color: #ff5252;
+}
+
+button[type="button"]:hover {
+    background-color: #e53935;
+}
+
+.charges-table {
+    background-color: #1a1a1a; /* Match the form background color */
+    border: 1px solid #444; /* Match the form border color */
+    border-radius: 10px; /* Match the form border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Match the form shadow */
+    padding: 1rem;
+    color: #ccc; /* Light text color */
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+    margin: 0 auto; /* Center the table */
+}
+
+.charges-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.charges-table th, .charges-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #444; /* Match the form border color */
+}
+
+.charges-table th {
+    color: #ccc; /* Light text color */
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif; /* Match the form font */
+}
+
+.charges-table td {
+    color: #f0f0f0; /* Light text color */
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif; /* Match the form font */
+}
+
+.charges-table input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.charges-table input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #292929; /* Match the form input background color */
+    color: #f0f0f0; /* Light text color */
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.charges-table input[type="number"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3f51b5, 0 0 0 4px rgba(63, 81, 181, 0.2);
+}
+
+.charges-table .total-amount {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ccc; /* Light text color */
+    text-align: right;
+    font-family: 'Roboto', sans-serif; /* Match the form font */
+}
+
+.search-results {
+    margin-top: 2rem;
+}
+  
+.search-results table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a1a; /* Match the form background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Match the form shadow */
+    color: #ccc; /* Light text color */
+    margin-bottom: 2rem;
+  }
+  
+  .search-results th,
+  .search-results td {
+    padding: 12px; /* Slightly larger padding for a modern look */
+    border: 1px solid #444; /* Match the form border color */
+    text-align: left;
+    font-family: 'Roboto', sans-serif; /* Match the form font */
+  }
+  
+  .search-results th {
+    background-color: #333; /* Darker background for header */
+    color: #bfbfbf; /* Lighter text color */
+  }
+  
+  .search-results td {
+    font-size: 0.9rem;
+    background-color: #292929; /* Match the form input background */
+  }
+  
+  .search-results .disconnect {
+    color: #ff5252; /* Match button color */
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .search-results .apply-tariffs {
+    color: #3f51b5; /* Match button color */
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .search-results .disconnect:hover {
+    color: #e53935; /* Match hover state */
+  }
+  
+  .search-results .apply-tariffs:hover {
+    color: #303f9f; /* Match hover state */
+  }
+  

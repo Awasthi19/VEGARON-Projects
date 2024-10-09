@@ -1,48 +1,121 @@
-import React from 'react'
-import { LayoutGrid, MenuIcon, Search, ShoppingBag } from 'lucide-react';
-import Image from 'next/image';
+"use client";
 
+import React, { useState, useEffect, useRef } from "react";
+import { Fullscreen } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 function Navbar() {
+  const [customerMenu, setCustomerMenu] = useState<string[]>([
+    'Customer Registration',
+    'Edit Customer',
+    'Change Meter',
+    'Disconnect Meter',
+    'Cancel Transaction',
+  ]);
+
+  const [billingMenu, setBillingMenu] = useState<string[]>([
+
+    'Masik Billing',
+    "Meter Reading",
+    "Statement",
+    "Load Meter Reading",
+
+  ]);
+
+  const [isCustomerMenuOpen, setIsCustomerMenuOpen] = useState(false);
+  const [isBillingMenuOpen, setIsBillingMenuOpen] = useState(false);
+
+  const customerMenuRef = useRef<HTMLDivElement>(null);
+  const billingMenuRef = useRef<HTMLDivElement>(null);
+
+  const toggleCustomerMenu = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setIsCustomerMenuOpen((prev) => !prev);
+    setIsBillingMenuOpen(false); 
+  };
+
+  const toggleBillingMenu = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setIsBillingMenuOpen((prev) => !prev);
+    setIsCustomerMenuOpen(false); 
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (customerMenuRef.current && !customerMenuRef.current.contains(event.target as Node)) {
+        setIsCustomerMenuOpen(false);
+        console.log('customer menu closed');
+      }
+      if (billingMenuRef.current && !billingMenuRef.current.contains(event.target as Node)) {
+        setIsBillingMenuOpen(false);
+      }
+    };
+  
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+  
+
   return (
-    <div>
-    <div className=
-    "flex items-center gap-10 p-2 shadow-lg justify-between"
-    >
-
-      <Image src='/drawing-2.svg' width={50} height={50} alt='logo'/>
-      <h1 className='text-2xl font-bold'>VEGARON</h1>
-
-      <div className='md:flex hidden font-bold   gap-2 items-center border rounded-full p-1 px-10 bg-slate-200'>
-      <LayoutGrid className='h-5 w-5'/>Category
+    <nav className="navbar fixed">
+      <div className="navbar-container">
+        <ul className="navbar-menu">
+          <li>
+            <a href="#hamburger">
+              <Fullscreen className="h-6 w-6" />
+            </a>
+          </li>
+          <li>
+            <a href="#about">Home</a>
+          </li>
+          <li className="relative">
+            <a href="#customers" onClick={toggleCustomerMenu}>Customers</a>
+            {isCustomerMenuOpen && (
+              <div
+                className="menu-container absolute left-[-50px] mt-[15px]"
+                ref={customerMenuRef}
+              >
+                {customerMenu.map((item, index) => (
+                  <Link href={`/dashboard/${item.replace(/\s+/g, '')}`} key={index}>
+                    <div className="menu-item" onClick={() => setIsCustomerMenuOpen(false)}>
+                      {item}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </li>
+          <li className="relative">
+            <a href="#billing" onClick={toggleBillingMenu}>Billing</a>
+            {isBillingMenuOpen && (
+              <div
+                className="menu-container absolute left-[-50px] mt-[15px]"
+                ref={billingMenuRef}
+              >
+                {billingMenu.map((item, index) => (
+                  <Link href={`/dashboard/${item.replace(/\s+/g, '')}`} key={index}>
+                    <div className="menu-item" onClick={() => setIsBillingMenuOpen(false)}>
+                      {item}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </li>
+          <li>
+            <a href="#services">Report</a>
+          </li>
+          <li>
+            <a href="#setup">Setup</a>
+          </li>
+        </ul>
+        <a href="#" className="navbar-logo">
+          <Image src="/LOGO1.svg" width={200} height={50} alt="Logo" />
+        </a>
       </div>
-
-      <div className='md:flex hidden gap-2 items-center border rounded-full p-1 px-10 bg-slate-50'>
-        <Search/>
-        <input type='text' placeholder='Search' className='outline-none bg-transparent ml-2'/>
-      </div>
-
-      <div className='flex gap-6 items-center'>
-
-        <ShoppingBag/>
-        
-        <button className='relative overflow-hidden p-[1px]  rounded-full '>
-          <div className='absolute inset-[-1000%] z-0 bg-[conic-gradient(from_90deg_at_50%_50%,#000_0%,#000_40%,#fff_50%,#000_60%,#000_100%)]
- animate-spin-slow'/>
-          <div className='relative rounded-full px-3 py-1 z-100 text-white font-bold font-roboto'
-          style={{backgroundColor: 'rgb(200,42,42)'}}
-          >Login</div>
-        </button>
-
-      </div>
-
-      <div>
-        <MenuIcon/>
-      </div>
-      
-    </div>
-  </div>
-  )
+    </nav>
+  );
 }
 
-export default Navbar
+export default Navbar;

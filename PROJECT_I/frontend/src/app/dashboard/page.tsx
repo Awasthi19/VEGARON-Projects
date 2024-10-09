@@ -1,70 +1,79 @@
-"use client"
-import React from 'react'
-import axios from 'axios'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import Navbar from "@/components/navbar";
-import { Fullscreen } from 'lucide-react';
-import Image from 'next/image'
+"use client";
+import Navbar from '@/components/navbar';
 
-function Profile() {
-
-    const router = useRouter()
-    const [data, setData] = React.useState<any>(null)
-
-    const handleLogout = async (e:React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault()
-        try {
-            await axios.get('/api/users/logout')
-            router.push('/login')
-        } catch (error:any) {   
-            console.log(error.message)
-        }
-    }
-
-    const getUser = async () => {
-        try {
-            const jwt = {
-                jwt: document.cookie.split('=')[1]
-            }
-            const res = await axios.get(process.env.NEXT_PUBLIC_PROFILE_URL!,{
-                params:jwt,
-            })
-            console.log(res.data)
-            setData(res.data.email)
-        } catch (error:any) {
-            console.log(error.message)
-        }
-    }
-    getUser()
-
-
+export default function Home() {
   return (
-        <nav className="navbar">
-          <div className="navbar-container">
-              
-              <ul className="navbar-menu">
-                  <li><a href="#hamburger">
-                      <Fullscreen className="h-6 w-6" />
-                  </a></li>
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#services">Services</a></li>
-                  <li><a href="#contact">Contact</a></li>
-              </ul>
-              <a href="#" className="navbar-logo">
-                <Image
-                  src="/LOGO1.svg"
-                  width={200}
-                  height={50}
-                  alt="Logo"
-                />
-              </a>
-
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <main className="main p-8">
+        
+        <div className="dashboard-grid">
+          <div className="card bg-yellow-400">
+            <div className="card-content">
+              <h2>Customers</h2>
+              <span>👥</span>
+            </div>
+            <button>View Details &rarr;</button>
           </div>
-        </nav>
-
-  )
+          <div className="card bg-yellow-400">
+            <div className="card-content">
+              <h2>Customers</h2>
+              <span>👥</span>
+            </div>
+            <button>View Details &rarr;</button>
+          </div>
+          <div className="card bg-green-400">
+            <div className="card-content">
+              <h2>At a Glance</h2>
+              <span>👁️</span>
+            </div>
+            <button>View Details &rarr;</button>
+          </div>
+          <div className="card bg-red-400">
+            <div className="card-content">
+              <h2>Disconnect Meter</h2>
+              <span>🔌</span>
+            </div>
+            <button>View Details &rarr;</button>
+          </div>
+          <div className="card bg-green-500">
+            <div className="card-content">
+              <h2>SMS Summary</h2>
+              <span>💬</span>
+            </div>
+            <button>View Details &rarr;</button>
+          </div>
+          <div className="card bg-yellow-500">
+            <div className="card-content">
+              <h2>Due</h2>
+              <span>⌛</span>
+            </div>
+            <button>View Details &rarr;</button>
+          </div>
+        </div>
+        <aside className="committee-members">
+          <h3 className="text-xl font-semibold">Current Committee Members</h3>
+          <ul>
+            {/* Example Members */}
+            <li>
+              <span>First Middle Last</span>
+              <small>Chairperson</small>
+              <small>9--------</small>
+            </li>
+            <li>
+              <span>First Middle Last</span>
+              <small>Post</small>
+              <small>9---------</small>
+            </li>
+            <li>
+              <span>First Middle Last</span>
+              <small>Post</small>
+              <small>9---------</small>
+            </li>
+            {/* Add more members as needed */}
+          </ul>
+        </aside>
+      </main>
+    </div>
+  );
 }
-
-export default Profile

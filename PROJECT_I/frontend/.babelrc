@@ -1,0 +1,6 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+      // Add your custom plugins here
+    ]
+  }

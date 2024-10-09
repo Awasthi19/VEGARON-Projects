@@ -3,11 +3,11 @@ import React,{useEffect, useState} from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import toast from 'react-hot-toast';
 import axios from 'axios'
 import { Fullscreen } from 'lucide-react';
 import './login.css'; 
 import { Roboto } from '@next/font/google';
+import { toast, ToastContainer } from 'react-toastify'
 
 const roboto = Roboto({
   weight: ['400', '500', '700'],
@@ -188,6 +188,7 @@ function Login() {
       </div>
 
       </div>
+      <ToastContainer />
     </div>
   )
 }

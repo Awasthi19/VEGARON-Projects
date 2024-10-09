@@ -1,0 +1,190 @@
+.billing-container {
+    border: 1px solid #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: #1a1a1a; /* Match the menu container background */
+    padding: 2rem;
+    border-radius: 10px; /* Match the menu container border radius */
+    color: #ccc; /* Light text color */
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+    gap: 1rem;
+    justify-content: start;
+    display: flex; /* Align items horizontally */
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+.billing-container .customer-info{
+    flex: 0.5;
+    min-width: 280px; /* Ensure columns have a minimum width */
+    margin-bottom: 1rem; /* Add spacing between rows on wrap */
+}
+.billing-container .charge-section{
+    flex: 1;
+    min-width: 280px; /* Ensure columns have a minimum width */
+    margin-bottom: 1rem; /* Add spacing between rows on wrap */
+}
+
+.billing-container .payment-summary {
+    flex: 2;
+    min-width: 280px; /* Ensure columns have a minimum width */
+    margin-bottom: 1rem; /* Add spacing between rows on wrap */
+}
+
+.billing-container .customer-info {
+    padding-right: 2rem;
+}
+
+.billing-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.billing-container input,
+.billing-container select {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #292929;
+    color: #f0f0f0;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.billing-container input:focus,
+.billing-container select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #15ad66, 0 0 0 4px rgba(63, 81, 181, 0.2);
+}
+
+.billing-container button {
+    background-color: #4caf50; /* Green button */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.billing-container button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+.billing-container p {
+    margin-bottom: 1rem;
+    
+}
+
+.billing-container .payment-mode {
+    display: flex;
+    gap: 1rem;
+}
+
+.statement-result {
+    margin-top: 2rem;
+}
+
+.statement-result table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #1a1a1a;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+.statement-result th,
+.statement-result td {
+    padding: 12px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+}
+
+.statement-result th {
+    background-color: transparent;
+    color: #15ad66;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.statement-result td {
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+.statement-result tr:nth-child(even) {
+    background-color: #262626;
+}
+
+.statement-result tr:hover {
+    background-color: #4e2222;
+}
+
+.statement-result td a {
+    color: #15ad66;
+    text-decoration: none;
+}
+
+.statement-result td a:hover {
+    text-decoration: underline;
+}
+
+.statement-result .total-row {
+    font-weight: bold;
+    color: #ff0066;
+    font-size: 1.1rem;
+    text-align: right;
+    padding-top: 20px;
+}
+
+.statement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.statement-header h2 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin: 0;
+}
+
+.statement-header .customer-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #ccc;
+}
+
+.statement-header .customer-details div {
+    margin-bottom: 0.5rem;
+}
+
+.date-range {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date-range label {
+    font-size: 1rem;
+    color: #ccc;
+    margin-right: 10px;
+}
+
+.date-range input[type="date"] {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #292929;
+    color: #f0f0f0;
+    font-size: 1rem;
+}
+
+
