@@ -1,0 +1,249 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align to the top */
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%; /* Full width for flexibility */
+    max-width: 100%; /* Ensure no overflow */
+    padding-top: 95px;
+}
+
+
+.form-container h2 {
+	font-size: 45px;
+	font-weight: 700;
+    align-self: flex-start;
+    margin-left: 112px;
+    color: #17cbb9;
+    padding-bottom: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 10px;
+}
+
+.registration-form {
+    width: 1200px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    justify-content: start;
+    margin-top: -25px;
+}
+
+
+.form-section {
+    max-width: 250px;
+    padding: 1rem;
+}
+
+.form-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-bottom: 1px solid #444; /* Match the border color */
+    padding-bottom: 0.5rem;
+    font-family: 'Roboto', sans-serif; /* Match the menu container font */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #9c9c9c; /* Match the form border color */
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-sizing: border-box;
+    background-color: #ebebeb;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    background-color: #d8e6cd;
+    border: 2px solid rgb(122, 205, 122);
+}
+
+.dark .form-group input,
+.dark .form-group select {
+
+    border: 1px solid #494646; /* Match the form border color */
+    background-color: #27272a;
+}
+
+.dark .form-group input:focus,
+.dark .form-group select:focus {
+    background-color: #333631;
+    border: 2px solid rgb(58, 98, 58);
+}
+
+/* charge table*/
+
+.charges-table {
+    width: 1200px;
+    border: none; /* Match the form border color */
+    border-radius: 10px; /* Match the form border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Match the form shadow */
+    padding: 1rem;
+    box-sizing: border-box;
+    margin: 0 auto; /* Center the table */
+}
+
+.charges-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.charges-table th, .charges-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #444; /* Match the form border color */
+}
+
+.charges-table th {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.charges-table td {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.charges-table input[type="checkbox"] {
+    /* Appearance reset to remove default styling */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    width: 1.5rem; /* Adjust size */
+    height: 1.5rem;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    position: relative;
+}
+
+.charges-table input[type="checkbox"]:checked {
+    background-color: #4CAF50; /* Checked background */
+    border-color: #4CAF50;
+}
+
+.charges-table input[type="checkbox"]:checked::before {
+    content: '✓';
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+}
+
+.charges-table input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Focused state */
+}
+
+.charges-table input[type="checkbox"]:hover {
+    border-color: #888; /* Change on hover */
+}
+
+
+
+
+.charges-table input[type="number"] {
+    width: 150px;
+    padding: 0.75rem;
+    border: 1px solid #9c9c9c; /* Match the form border color */
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-sizing: border-box;
+    background-color: #ebebeb;
+}
+
+.charges-table input[type="number"]:focus {
+    outline: none;
+    background-color: #d8e6cd;
+    border: 2px solid rgb(122, 205, 122);
+}
+
+.dark .charges-table input[type="number"] {
+
+    border: 1px solid #494646; /* Match the form border color */
+    background-color: #27272a;
+}
+
+.dark .charges-table input[type="number"]:focus {
+    background-color: #333631;
+    border: 2px solid rgb(58, 98, 58);
+}
+
+.charges-table .total-amount {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: right;
+    font-family: 'Roboto', sans-serif; /* Match the form font */
+}
+  
+
+  .card {
+    padding-left: 300px;
+    text-align: center;
+    width: 600px;
+    border: none;
+  }
+  
+  .text {
+    font-size: 18px;
+    color: #f01a1a;
+  }
+  
+  .amount {
+    font-size: 36px;
+    color: rgb(21, 198, 21); /* Bright green color for the amount */
+  }
+
+  .required-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 4px;
+    margin-bottom: 3px;
+  }
+  
+  .calender {
+    width: 300px !important;   /* Set desired width */
+    height: auto !important;   /* Set desired height or use auto for dynamic height */
+  }
+  

@@ -47,14 +47,14 @@ function Navigationbar({ className }: { className?: string }) {
   if (!mounted) return null;
 
   return (
-    <div className={cn("fixed  inset-x-0 mx-auto z-50", className)}>
+    <div className={cn("fixed  inset-x-0 mx-auto z-50 ", className)}>
       <Navbar
         expand="md"
-        className="bg-custom-light text-custom-light shadow-custom-light dark:bg-custom-dark dark:text-custom-dark dark:shadow-custom-dark"
+        className="bg-custom-light text-custom-light shadow-custom-light dark:bg-custom-dark dark:text-custom-dark dark:shadow-custom-dark "
       >
-        <Container>
+        <>
           <Navbar.Brand href="/">
-            <Image src="/sycas-logo.svg" width={500} height={500} alt="logo" />
+            <Image src="/sycas-logo.svg" width={500} height={500} alt="logo" priority />
           </Navbar.Brand>
 
           <Nav className="ms-auto">
@@ -79,17 +79,34 @@ function Navigationbar({ className }: { className?: string }) {
               <Menu setActive={setActive}>
                 <MenuItem setActive={setActive} active={active} item="Setup">
                   <div className="flex flex-col space-y-4 text-sm ">
-                    <HoveredLink href="/tariff-parameter">
-                      Tariff Parameter
-                    </HoveredLink>
-                    <HoveredLink href="/discount-penalty">
-                      Discount/Penalty
-                    </HoveredLink>
+                    <HoveredLink href="/tariff-parameter">Tariff Parameter</HoveredLink>
+                    <HoveredLink href="/discount-penalty">Discount/Penalty</HoveredLink>
                     <HoveredLink href="/meter-type">Meter type</HoveredLink>
                     <HoveredLink href="/event-charge">Event Charge</HoveredLink>
                   </div>
                 </MenuItem>
               </Menu>
+            </Nav.Link>
+
+            <Nav.Link
+              className={
+                activeLink === "skills" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => onUpdateActiveLink("skills")}
+            >
+              <Menu setActive={setActive}>
+                <MenuItem setActive={setActive} active={active} item="Reports">
+                  <div className="flex flex-col space-y-4 text-sm">
+                    <HoveredLink href="/billing-report">
+                      Billing Report
+                    </HoveredLink>
+                    <HoveredLink href="/customer-report">
+                      Customer Report
+                    </HoveredLink>
+                  </div>
+                </MenuItem>
+              </Menu>
+              
             </Nav.Link>
 
             <Nav.Link
@@ -115,6 +132,7 @@ function Navigationbar({ className }: { className?: string }) {
                   </div>
                 </MenuItem>
               </Menu>
+              
             </Nav.Link>
             <Nav.Link
               href="#home"
@@ -130,25 +148,25 @@ function Navigationbar({ className }: { className?: string }) {
                       title="Register Customer"
                       href="/register-customer"
                       src="/sycas-halflogo.svg"
-                      description="Quickly add new customers to your system with an intuitive registration process."
+                      description="Quickly add new customers"
                     />
                     <ProductItem
                       title="Edit Customer"
                       href="/edit-customer"
                       src="/sycas-halflogo.svg"
-                      description="Easily update customer details and keep your records accurate in real-time."
+                      description="Easily update customer details"
                     />
                     <ProductItem
                       title="Cancel Transaction"
                       href="/cancel-transaction"
                       src="/sycas-halflogo.svg"
-                      description="Seamlessly cancel ongoing transactions while maintaining full audit logs."
+                      description="Seamlessly cancel ongoing transactions"
                     />
                     <ProductItem
                       title="Delete Customer"
                       href="/delete-customer"
                       src="/sycas-halflogo.svg"
-                      description="Permanently remove customers from your database with secure deletion protocols."
+                      description="Permanently remove customers "
                     />
                   </div>
                 </MenuItem>
@@ -211,7 +229,7 @@ function Navigationbar({ className }: { className?: string }) {
               </Link>
             </Nav>
           </Navbar.Collapse>
-        </Container>
+        </>
       </Navbar>
     </div>
   );

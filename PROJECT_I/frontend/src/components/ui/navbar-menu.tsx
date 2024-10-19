@@ -19,7 +19,7 @@ export const MenuItem = ({
   item,
   children,
 }: {
-  setActive: (item: string) => void;
+  setActive: (item: string | null) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
@@ -28,7 +28,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative ">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer p-0 m-0 hover:opacity-[0.9]  "
+        className="cursor-pointer px-[25px] m-0 hover:opacity-[0.9]  "
       >
         {item}
       </motion.p>
@@ -48,8 +48,10 @@ export const MenuItem = ({
                 <motion.div
                   layout // layout ensures smooth animation
                   className="w-max h-full p-4"
+                  onClick={() => setActive(null)}
                 >
                   {children}
+                  
                 </motion.div>
               </motion.div>
             </div>
@@ -89,11 +91,11 @@ export const ProductItem = ({
   src: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-2 no-underline">
+    <Link href={href} className="flex h-[80px] space-x-2 no-underline">
       <Image
         src={src}
-        width={140}
-        height={70}
+        width={60}
+        height={50}
         alt={title}
         className="flex-shrink-0 rounded-md shadow-2xl"
       />

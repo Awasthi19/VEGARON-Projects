@@ -1,0 +1,91 @@
+
+.search-results {
+    max-width: 1200px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 5rem;
+    justify-content: start;
+    margin-top: 2rem;
+    margin-left: 112px;
+    margin-bottom: 20px;
+}
+
+.search-results table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    color: #1f1f1f;
+    margin-bottom: 2rem;
+  }
+
+  .dark .search-results table {
+    background-color:#1f1f1f ;
+    color: #fff;
+  }
+  
+  .search-results th,
+  .search-results td {
+    
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+  }
+
+
+  
+  .search-results th {
+    padding-top: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    background-color: transparent;
+    color: #1f1f1f;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 14.28%; 
+  }
+
+  .dark .search-results th {
+
+    color: #fff;
+
+  }
+  
+  .search-results td {
+    padding: 7px;
+    font-size: 1rem;
+    background-color: transparent;
+  }
+  
+  .search-results tr:nth-child(even) {
+    background-color: #ebebeb;
+  }
+
+  .dark .search-results tr:nth-child(even) {
+    background-color: #262626;
+  }
+  
+  .search-results tr:hover {
+    background-color: rgb(122, 205, 122);
+  }
+
+  .search-results tr button{
+    padding: 0.5rem 2rem; 
+    background-color: #3eb238; 
+    color: white; 
+    font-weight: bold; 
+    border-radius: 1.5rem; 
+    border: 2px solid transparent; 
+    transition: all 0.2s ease-in-out; 
+  }
+
+  .search-results tr:hover button{
+    background-color: white !important; 
+    color: #3eb238 !important; 
+    border-color: #3eb238 !important; 
+  }

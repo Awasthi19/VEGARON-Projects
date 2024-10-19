@@ -1,0 +1,62 @@
+ .calendar-wrapper {
+  position: relative;
+}
+
+.custom-calendar .date-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-calendar .calendar-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 250px;
+  margin-top: 5px;
+  z-index: 10;
+  border: 1px solid #a3c2ec;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+
+}
+
+.custom-calendar .calendar-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  margin-bottom: 0 !important;
+}
+.custom-calendar .calendar-table tr {
+  text-align: center;
+}
+
+.custom-calendar .calendar-table th{
+  text-align: center;
+  padding: 5px;
+  background-color: white;
+  color: black;
+  font-weight: 900;
+}
+.custom-calendar .calendar-table td {
+  font-weight: 700;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: #deeefb;
+  color: #1f93c4;
+}
+
+.custom-calendar .calendar-table td.selected {
+  background-color: rgb(224, 224, 224);
+  color: white;
+}
+
+.custom-calendar .calendar-table td:hover {
+  background-color: #a3c2ec;
+}

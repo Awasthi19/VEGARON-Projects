@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'nepali_datetime_field',
     'app1',
+
 ]
 
 MIDDLEWARE = [
@@ -62,7 +64,7 @@ CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
-"""
+
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -76,7 +78,7 @@ TEMPLATES = [
             ],
         },
     },
-"""
+
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
@@ -117,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kathmandu'
 
 USE_I18N = True
 
