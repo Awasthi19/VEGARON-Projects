@@ -1,6 +1,7 @@
 from datetime import timedelta
 from django.shortcuts import get_object_or_404
 from .models import BSADMapping
+from django.utils import timezone
 
 def bs_to_ad(bs_date_str):
     bs_year, bs_month, bs_day = map(int, bs_date_str.split('-'))
@@ -85,3 +86,8 @@ def get_days_in_bs_month(bs_month, bs_year):
 
     except BSADMapping.DoesNotExist:
         return None  # Handle cases where the mapping doesn't exist
+
+def bs_date_now():
+    current_date = timezone.now().date()
+    bs_day, bs_month, bs_year = ad_to_bs(current_date)
+    return bs_day, bs_month, bs_year

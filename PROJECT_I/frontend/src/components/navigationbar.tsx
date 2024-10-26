@@ -126,8 +126,8 @@ function Navigationbar({ className }: { className?: string }) {
                       Meter Reading
                     </HoveredLink>
                     <HoveredLink href="/statement">Statement</HoveredLink>
-                    <HoveredLink href="/load-meter-reading">
-                      Load Meter Reading
+                    <HoveredLink href="/upload-meter-reading">
+                      Upload Meter Reading
                     </HoveredLink>
                   </div>
                 </MenuItem>

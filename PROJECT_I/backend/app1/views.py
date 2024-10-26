@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404
 import decimal
 from fuzzywuzzy import process
 from django.utils.dateformat import format
-from .test2 import bs_to_ad, ad_to_bs, get_days_in_bs_month, get_ad_date_range_for_bs_month
+from .test2 import bs_to_ad, ad_to_bs, get_days_in_bs_month, get_ad_date_range_for_bs_month, bs_date_now
 import json
 from datetime import datetime
 
@@ -711,8 +711,6 @@ class PayView(APIView):
             'remaining_amount': remaining_amount,
         }, status=status.HTTP_201_CREATED)
 
-
-
 class loadpaymentView(APIView):
     def get(self, request):
         customer_no = request.GET.get('customerNumber')
@@ -748,9 +746,7 @@ class loadpaymentView(APIView):
             "advance_amount": advance_amount,
             "to_pay": to_pay,
         }, status=status.HTTP_200_OK)
-
-
-    
+   
 class PaymentView(APIView):
     def post(self, request):
         # Get data from request
@@ -800,7 +796,33 @@ class PaymentView(APIView):
             'balance': new_balance
         }, status=status.HTTP_201_CREATED)
 
+class LoadMeterReadingView(APIView):
+    def get(self, request):
+        bs_day, bs_month, bs_year = bs_date_now()  # Get the current BS date
         
+        # Get relevant meter readings in a single query
+        meter_readings = (
+            MeterReading.objects
+            .filter(year__lt=bs_year)  # Year less than current BS year
+            | MeterReading.objects.filter(year=bs_year, month__lte=bs_month)  # Or same year but month <= current BS month
+            .select_related('customer')  # Optimize customer query
+            .order_by('customer_id', '-verified_date')  # Order by customer and verified date
+            .distinct('customer_id')  # Get only the latest for each customer
+        )
+        
+        # Collect customer reading data
+        customer_reading_data = [
+            {
+                'customerNumber': reading.customer.customer_no,
+                'previousReading': reading.previous_reading,
+                'year': reading.year,
+                'month': reading.month
+            }
+            for reading in meter_readings
+        ]
+
+        return Response(customer_reading_data)
+
 class UploadMeterReadingBulkView(APIView):
     permission_classes = []
     authentication_classes = []
@@ -863,8 +885,6 @@ class UploadMeterReadingBulkView(APIView):
 
         return Response({'success': 'Meter readings uploaded successfully'}, status=status.HTTP_201_CREATED)
 
-
-
 class UploadMeterReadingView(APIView):
     def post(self, request):
         customer_no = request.data.get('customerNumber')
@@ -905,6 +925,7 @@ class UploadMeterReadingView(APIView):
         )
         return Response({"message": "Meter reading uploaded successfully."}, status=status.HTTP_201_CREATED)
 
+
 class loginView (APIView):
     permission_classes = []
     authentication_classes = []
@@ -934,6 +955,7 @@ class loginView (APIView):
                 'jwt': token
             }
             return response
+
 """        
 class signupView (APIView):
     permission_classes = []
